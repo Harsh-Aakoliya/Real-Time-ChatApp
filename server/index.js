@@ -31,9 +31,9 @@ io.on("connection",(socket)=>{//connection event means someone have opened the o
     //now user have been connnected to socket
     //now he/she may want to join the chat os let us call that event as "join_chat" so from frontend whenever the "join_chat" 
     //event will be emmited then below code will execute
-    socket.on("join_chat",(useData)=>{
-        socket.join(useData.roomId);//since we have only one chat room and whatever is setted from frontend on that basis we can directly join that one common chatroom
-        console.log("User with name : ",useData.name,"and socket id as :",socket.id,"Joined the room : ",useData.roomId);
+    socket.on("join_chat",(userData)=>{
+        socket.join(userData.roomId);//since we have only one chat room and whatever is setted from frontend on that basis we can directly join that one common chatroom
+        console.log("User with name : ",userData.name,"and socket id as :",socket.id,"Joined the room : ",userData.roomId);
     })
 
 
