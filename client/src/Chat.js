@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import ShowAllChat from './ShowAllChat';
 
 function Chat({socket, name,roomId}) {
     const [chat,setChat]=useState("");
+    const [allChats,setAllChats]=useState([])
     //this funciton will be in picture if we want to send message from front end to backend
     const sendChat=async ()=>{
         if(chat!==""){
@@ -24,11 +26,14 @@ function Chat({socket, name,roomId}) {
     useEffect(()=>{
         socket.on("receive_chat",(receivedData)=>{//this callback function will perform what ever we 
             console.log("chat receiver from other user",receivedData);
+            setAllChats((prechats) => [...prechats, receivedData]);
         })
     },[socket]);
   return (
     <div>
-        <div>Available Chat for this room</div>
+        <div>Available Chat for this room
+            <ShowAllChat allChats={allChats}/>
+        </div>
         <div>
             <input type='text' placeholder="Express your thought" onChange={(e)=>{setChat(e.target.value)}}></input>
             <button onClick={sendChat}>Send </button>
