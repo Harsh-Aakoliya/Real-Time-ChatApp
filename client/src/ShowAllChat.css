@@ -1,13 +1,50 @@
 /* ShowAllChat.css */
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10%;
-    background-color: lightslategray;
+.allChat-container {
+    
+    width: auto;
+    height: 450px;
+    /* border-radius: 10%; */
+    background-color: rgb(129, 129, 129);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: auto;
   }
-  
+.chatMessage-container{
+    font-family: serif;
+    background-color: yellow;
+    text-align: left;
+    justify-content: flex-start;
+    width: fit-content;
+    border-radius: 1px;
+    padding-right: 10px;
+    padding-left:  10px;
+    margin-bottom: 10px;
+}
+.userName-Heading {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: fit-content;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    background-color: pink;
+    /* margin-left: 100px; */
+}
+#you{
+    margin-left: 300px;
+}
+/* #other .userName-Heading{
+    
+} */
+
   h5 {
     margin-bottom: 10px;
     font-size: 16px;

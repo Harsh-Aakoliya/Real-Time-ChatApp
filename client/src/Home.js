@@ -18,14 +18,16 @@ function Home() {
     if(name!==""){
         await socket.emit("join_chat",{name,roomId})
         setJoindedChat(true);
+        return ;
     }
+    alert("Please enter your name ")
+
   }
   return (
     <div className="Home-container"> 
       {
         !joindedChat ?
         <>
-          This home page
           <h2>Join the chat</h2>
           <input type="text" placeholder="What chat should call you ?" onChange={(e)=>{setName(e.target.value)}}></input>
           <button onClick={joinChat}>Join the chat</button>

@@ -48,7 +48,7 @@ function Chat(props) { //props will be   {socket, name,roomId}
   return (
     <div className='container'>
         <div>Available Chat for this room
-            <ShowAllChat allChats={allChats}/>
+            <ShowAllChat allChats={allChats} curUser={name}/>
         </div>
         <div>
             <input type='text' placeholder="Express your thought" onChange={(e)=>{setChat(e.target.value)}}></input>

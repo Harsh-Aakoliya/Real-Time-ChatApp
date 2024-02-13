@@ -1,14 +1,28 @@
 import React from 'react'
 import "./ShowAllChat.css"
-function ShowAllChat({allChats}) {
+function ShowAllChat({allChats,curUser}) {
     console.log(allChats);
+    console.log(curUser);
   return (
-    <div className='container'>
+    <div className='allChat-container'>
         {
             allChats.map((chat,key)=>{
+                console.log("current and sender",curUser," ",chat.senderName);
                 return (
-                    // <h5>{chat}</h5>
-                    <h5>chat sended by {chat?.senderName} and chat content is {chat?.chatMessage}</h5>
+                    <>
+                        <div className="userName-Heading" id={(chat.senderName === curUser) ? "you" : "other"}><b>~</b>\
+                                {
+                                    chat.senderName===curUser &&  "You"
+                                }
+                                {
+                                    chat.senderName!==curUser &&  chat.senderName
+                                }    
+                            <div className='chatMessage-container'>
+                                {chat.chatMessage}
+                            </div>
+                        </div>
+                        
+                    </>
                 )
             })
         }
@@ -17,3 +31,4 @@ function ShowAllChat({allChats}) {
 }
 
 export default ShowAllChat
+
