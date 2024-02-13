@@ -13,7 +13,7 @@ const server=http.createServer(app);
 
 const io=new Server(server,{
     cors:{
-        origin : "http://localhost:3000", //from which url the socket communication will be done
+        // origin : "http://localhost:3000", //from which url the socket communication will be done
         origin : "https://real-time-chating-app.netlify.app/", //from which url the socket communication will be done
         methods : ["GET","POST"],//specifing which types of request server will receive from origin
     },
