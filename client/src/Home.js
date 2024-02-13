@@ -5,7 +5,8 @@ import Chat from './Chat';
 import io from "socket.io-client"
 
 //establishing the connection to socket.io so we need to provide the connection url of backend
-const socket=io.connect("http://localhost:3001")
+// const socket=io.connect("http://localhost:3001")
+const socket=io.connect("https://chat-app-backend-g8y3.onrender.com")//deployment url
 
 
 function Home() {
