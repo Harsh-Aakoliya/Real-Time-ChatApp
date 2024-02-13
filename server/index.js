@@ -19,7 +19,6 @@ const io=new Server(server,{
     },
 })//instantiating object of Server class so it require two parameter first is which HTTP server we want to connect with socket.io
 //and second parameter is to handle issues related to cors 
-// TODO: remove the second parameter 
  
 
 
@@ -55,8 +54,8 @@ io.on("connection",(socket)=>{//connection event means someone have opened the o
 })
 
 
+const PORT=process.env.PORT || 3001
 
-
-server.listen(3001,()=>{//3001 with port on which our server is running
-    console.log("server is running")//this is callback function means whenever there is no issuse with our sever it will log "server is running" so that we being acknowledged about server is correctly running or not
+server.listen(PORT,()=>{//3001 with port on which our server is running
+    console.log("server is running on port ",PORT)//this is callback function means whenever there is no issuse with our sever it will log "server is running" so that we being acknowledged about server is correctly running or not
 })
