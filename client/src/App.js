@@ -24,7 +24,7 @@ function App() {
       <input type="text" placeholder="What chat should call you ?" onChange={(e)=>{setName(e.target.value)}}></input>
       <button onClick={joinChat}>Join the chat</button>
       <br />
-      <Chat socket={socket} name={name}/>
+      <Chat socket={socket} name={name} roomId={roomId}/>
     </div>
   );
 }

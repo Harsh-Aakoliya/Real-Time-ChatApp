@@ -39,6 +39,11 @@ io.on("connection",(socket)=>{//connection event means someone have opened the o
 
     socket.on("send_chat",(chatData)=>{
         console.log(chatData);
+
+        //now as user have sended the chat now we needs to emit an action receive chat because if we perform that then and only 
+        //then users connected with given socket will receive the message so
+        socket.to(chatData.roomId).emit("receive_chat",chatData)//and also we have one global room so whoever is there in that room with id as roomId will receive the message sended by user but if we do not to socket.to(chatData.roomId) then it will send the data to only that user who have sended the chat
+
     })
 
 

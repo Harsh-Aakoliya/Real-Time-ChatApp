@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Chat({socket, name}) {
+function Chat({socket, name,roomId}) {
     const [chat,setChat]=useState("");
     //this funciton will be in picture if we want to send message from front end to backend
     const sendChat=async ()=>{
@@ -8,21 +8,22 @@ function Chat({socket, name}) {
             const chatData={
                 senderName:name,
                 chatMessage:chat,
+                roomId:roomId
             }
             await socket.emit("send_chat",chatData)
         }
     }
 
     //now to display all the chat we need to listen from backend because suppose we have two user (user1 and user2)
-    //so whenever user1 sendChat then server will listen it and also that user1's chat will be emitted from backeend to every
-    //other user they are connnected to socket i.e. user1's and user2's chat body will receive that user1's chat
+    //so whenever user1 sendChat then server will listen it and also that user1's chat will be emitted from backend to every
+    //other user they are connnected to socket i.e. user2's chat body will receive the user1's chat
 
     //so from above idea we can say that whenever there is change in socket variable we need to display that new chat in chat body
-    //so this situation lead so use useEffect Hook
+    //so this situation lead so use useEffect hook
     //and for this scenario let us set event as "receive_chat"
     useEffect(()=>{
-        socket.on("receive_chat",()=>{//this callback function will perform what ever we 
-
+        socket.on("receive_chat",(receivedData)=>{//this callback function will perform what ever we 
+            console.log("chat receiver from other user",receivedData);
         })
     },[socket]);
   return (
